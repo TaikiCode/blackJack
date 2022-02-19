@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { GAME_MESSAGE } from "../../contents/gameStatus";
 import { checkDeckForShuffle } from "../../lib/checkDeckForShuffle";
 import { checkForBurst } from "../../lib/checkForBurst";
 import { checkGameStatus } from "../../lib/checkGameStatus";
@@ -21,7 +22,6 @@ export const GameReducer = () => {
         });
     };
 
-
     const handleMakeBet = (playerInfo: PlayerInfo) => {
         gameDispatch({
             type: ACTION_TYPE.MAKE_BET,
@@ -43,7 +43,8 @@ export const GameReducer = () => {
         status: Status
     ) => {
         let playerTotal = Math.max(playerInfo.total, playerInfo.totalAlt);
-        if (playerTotal > 21) playerTotal = Math.min(playerInfo.total, playerInfo.totalAlt);
+        if (playerTotal > 21)
+            playerTotal = Math.min(playerInfo.total, playerInfo.totalAlt);
         const checkedDeck = checkDeckForShuffle(deck);
         let dealerCards = dealerInfo.cards;
         let msg = checkGameStatus(dealerCards, playerTotal);
@@ -55,7 +56,12 @@ export const GameReducer = () => {
         }
         gameDispatch({
             type: ACTION_TYPE.STAY_ACTION,
-            payload: { ...gameState, deck, dealerInfo, status: {...status, resultMsg: msg} },
+            payload: {
+                ...gameState,
+                deck: checkedDeck,
+                dealerInfo,
+                status: { ...status, resultMsg: msg },
+            },
         });
         // calcCards();
     };
@@ -72,34 +78,59 @@ export const GameReducer = () => {
         handleCalcTotalAction(dealerInfo, playerInfo);
         gameDispatch({
             type: ACTION_TYPE.HIT_ACTION,
-            payload: { ...gameState, deck, playerInfo, status: {...status, resultMsg: checkForBurst(playerCards)} },
+            payload: {
+                ...gameState,
+                deck: checkedDeck,
+                playerInfo,
+                status: { ...status, resultMsg: checkForBurst(playerCards) },
+            },
         });
     };
-
 
     const handleDealAction = (
         deck: Card[],
         dealerInfo: DealerInfo,
         playerInfo: PlayerInfo
     ) => {
+        const checkedDeck = checkDeckForShuffle(deck);
+        const dealerCards = dealerInfo.cards;
+        const playerCards = playerInfo.cards;
+        if (playerInfo.betSize === 0) return;
+        drawCards(checkedDeck, dealerCards, 2);
+        drawCards(checkedDeck, playerCards, 2);
+        handleCalcTotalAction(dealerInfo, playerInfo);
         gameDispatch({
             type: ACTION_TYPE.DEAL_ACTION,
-            payload: { ...gameState, deck, dealerInfo, playerInfo },
+            payload: {
+                ...gameState,
+                deck: checkedDeck,
+                dealerInfo,
+                playerInfo,
+            },
         });
     };
 
+    const handleResetGameAction = (
+        deck: Card[],
+        playerInfo: PlayerInfo,
+        status: Status
+    ) => {
+        let { betSize, budget } = playerInfo;
+        let { resultMsg } = status;
+        if (resultMsg === GAME_MESSAGE["draw"]) {
+            budget = budget + betSize;
+        } else if (resultMsg === GAME_MESSAGE["win"]) {
+            budget = budget + betSize * 2;
+        }
 
-    const handleResetGameAction = (deck: Card[], playerInfo: PlayerInfo) => {
         gameDispatch({
             type: ACTION_TYPE.RESET_GAME,
-            payload: { ...gameState, deck, playerInfo },
+            payload: { ...gameState, deck, playerInfo: {...playerInfo, budget} },
         });
     };
-
 
     return {
         gameState,
-        handleCalcTotalAction,
         handleMakeBet,
         handleClearBet,
         handleDealAction,

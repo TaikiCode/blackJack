@@ -24,10 +24,6 @@ interface Props {
         playerInfo: PlayerInfo,
         status: Status
     ) => void;
-    handleCalcTotalAction: (
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo
-    ) => void;
 }
 
 const Section: VFC<Props> = ({
@@ -37,7 +33,6 @@ const Section: VFC<Props> = ({
     handleDealAction,
     handleHitAction,
     handleStayAction,
-    handleCalcTotalAction,
 }) =>
     gameState.status.isPlaying ? (
         <PlayingSection
@@ -49,7 +44,6 @@ const Section: VFC<Props> = ({
         <BetSection
             gameState={gameState}
             handleMakeBet={handleMakeBet}
-            handleCalcTotalAction={handleCalcTotalAction}
             handleDealAction={handleDealAction}
             handleClearBet={handleClearBet}
         />

@@ -1,6 +1,4 @@
 import { VFC } from "react";
-import { checkDeckForShuffle } from "../../lib/checkDeckForShuffle";
-import { drawCards } from "../../lib/drawCards";
 import { Card, DealerInfo, Game, PlayerInfo } from "../../types/types";
 import ChipList from "../ChipList/ChipList";
 import Button from "../common/Button";
@@ -8,10 +6,6 @@ import Button from "../common/Button";
 interface Props {
     gameState: Game;
     handleMakeBet: (playerInfo: PlayerInfo) => void;
-    handleCalcTotalAction: (
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo
-    ) => void;
     handleDealAction: (
         deck: Card[],
         dealerInfo: DealerInfo,
@@ -22,16 +16,8 @@ interface Props {
 }
 
 const BetSection: VFC<Props> = (props) => {
-    const dealClicked = ({ deck, playerInfo, dealerInfo }: Game) => {
-        const checkedDeck = checkDeckForShuffle(deck);
-        const dealerCards = dealerInfo.cards;
-        const playerCards = playerInfo.cards;
-        if (playerInfo.betSize === 0) return;
-        drawCards(checkedDeck, dealerCards, 2);
-        drawCards(checkedDeck, playerCards, 2);
-        props.handleDealAction(checkedDeck, dealerInfo, playerInfo);
-        props.handleCalcTotalAction(dealerInfo, playerInfo);
-    };
+
+    const {deck, dealerInfo, playerInfo, status} = props.gameState;
 
     const isDealDisabled = () => {
         return props.gameState.playerInfo.betSize === 0
@@ -42,7 +28,7 @@ const BetSection: VFC<Props> = (props) => {
     const BUTTON_LIST = [
         {
             className: "blueStyle" + " " + isDealDisabled(),
-            onClick: () => dealClicked(props.gameState),
+            onClick: () => props.handleDealAction(deck, dealerInfo, playerInfo),
             text: "Deal",
         },
         {
