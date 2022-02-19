@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+@import url("http://fonts.cdnfonts.com/css/casino");
+
+.blackJackTable {
+    /* font-family: helvetica; */
+    background-color: darkgreen;
+    @apply h-screen w-screen text-white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.backdrop {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: rgba(200, 200, 200, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.backdrop p {
+    text-align: center;
+    font-family: "Casino 3D";
+    /* font-family: "Casino Flat"; */
+    width: 100vw;
+    margin: 100px 0;
+    padding: 150px 0;
+    font-size: 5em;
+    font-weight: bolder;
+    background-color: rgba(0, 24, 0, 0.75);
+    border-style: solid;
+    border-width: 5px;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+    font-family: "Casino Flat";
 }
 
-.App-link {
-  color: #61dafb;
+.hide,
+.hidden {
+    display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chipListStyle {
+    @apply h-2/3 flex justify-center items-center;
+}
+/* ********* Button Style ********** */
+
+.btnStyle {
+    @apply btn text-white font-bold pt-5 pb-8 px-6 border-b-4 rounded-lg mx-2;
+}
+
+.redStyle {
+    @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500;
+}
+
+.blueStyle {
+    @apply bg-indigo-500 hover:bg-indigo-400 border-indigo-700 hover:border-indigo-500;
+}
+
+.yellowStyle {
+    @apply bg-yellow-500 hover:bg-yellow-400 border-yellow-700 hover:border-yellow-500;
 }
