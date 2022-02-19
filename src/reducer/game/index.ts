@@ -9,7 +9,7 @@ export interface GameAction {
     payload: Game;
 }
 
-export const reducer: Reducer<Game, GameAction> = (
+export const gameReducer: Reducer<Game, GameAction> = (
     state: Game,
     action: GameAction
 ) => {

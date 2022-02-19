@@ -1,11 +1,22 @@
-import {VFC} from 'react'
+import { VFC } from "react";
+import { PlayerInfo } from "../../types/types";
+import "./chip.scss";
 
-const Chip: VFC = () => {
-    return (
-        <div>
-            chip
-        </div>
-    )
+interface Props {
+    chip: any;
+    playerInfo: PlayerInfo;
+    handleMakeBet: (playerInfo: PlayerInfo) => void;
 }
 
-export default Chip
+const Chip: VFC<Props> = ({ chip, playerInfo, handleMakeBet }) => {
+    return (
+        <button
+            className={`chip ${chip.color}`}
+            onClick={() =>
+                handleMakeBet({ ...playerInfo, betSize: chip.value })
+            }
+        />
+    );
+};
+
+export default Chip;
