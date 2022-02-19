@@ -1,12 +1,12 @@
 import { VFC, useReducer } from "react";
 import { initialState } from "../../reducer/game/initialState";
 import { gameReducer } from "../../reducer/game";
-import CardList from "../CardList/CardList";
 import Alert from "../common/Alert";
 import { ACTION_TYPE } from "../../reducer/game/actionType";
 import { Card, DealerInfo, PlayerInfo, Status } from "../../types/types";
-import { Controls } from "../Controls/Controls";
 import GameResult from "../GameResult/GameResult";
+import BetSection from "../BetSection/BetSection";
+import PlaySection from "../PlaySection/PlaySection";
 
 const Game: VFC = () => {
     const [gameState, gameDispatch] = useReducer(gameReducer, initialState);
@@ -78,37 +78,28 @@ const Game: VFC = () => {
 
     return (
         <div className="blackJackTable relative">
-            <div className="h-2/3">
-                <CardList
-                    owner="Dealer: "
-                    cardTotal={dealerInfo.total}
-                    cardTotalAlt={dealerInfo.totalAlt}
-                    cards={dealerInfo.cards}
-                />
-                <CardList
-                    owner="Player: "
-                    cardTotal={playerInfo.total}
-                    cardTotalAlt={playerInfo.totalAlt}
-                    cards={playerInfo.cards}
-                />
-            </div>
-            <div className="h-1/3">
-                <Controls
-                    gameState={gameState}
-                    handleStayAction={handleStayAction}
-                    handleDealAction={handleDealAction}
-                    handleCalcTotalAction={handleCalcTotalAction}
-                    handleHitAction={handleHitAction}
-                    handleClearBet={handleClearBet}
-                    handleMakeBet={handleMakeBet}
-                />
-            </div>
-            <div className="absolute top-5 right-10">
+            <div className="absolute top-10 right-10">
                 <Alert
                     displayText={`Budget:  ${playerInfo.budget}`}
                     className="font-mono bg-black text-lg px-5 py-3 rounded-xl opacity-60 flex items-center"
                 />
             </div>
+            {status.isPlaying ? (
+                <PlaySection
+                    gameState={gameState}
+                    handleHitAction={handleHitAction}
+                    handleStayAction={handleStayAction}
+                    handleCalcTotalAction={handleCalcTotalAction}
+                />
+            ) : (
+                <BetSection
+                    gameState={gameState}
+                    handleMakeBet={handleMakeBet}
+                    handleCalcTotalAction={handleCalcTotalAction}
+                    handleDealAction={handleDealAction}
+                    handleClearBet={handleClearBet}
+                />
+            )}
             {status.resultMsg && (
                 <GameResult
                     deck={deck}

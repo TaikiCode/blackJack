@@ -42,10 +42,13 @@
     display: none;
 }
 
+.chipListStyle {
+    @apply h-2/3 flex justify-center items-center;
+}
 /* ********* Button Style ********** */
 
 .btnStyle {
-    @apply btn text-white font-bold py-5 px-6 border-b-4 rounded-lg mx-2;
+    @apply btn text-white font-bold pt-5 pb-8 px-6 border-b-4 rounded-lg mx-2;
 }
 
 .redStyle {

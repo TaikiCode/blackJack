@@ -6,6 +6,7 @@ import { checkGameStatus } from "../../lib/checkGameStatus";
 import { drawCards } from "../../lib/drawCards";
 import { Card, DealerInfo, Game, PlayerInfo, Status } from "../../types/types";
 import Chip from "../Chip/Chip";
+import ChipList from "../ChipList/ChipList";
 import Button from "../common/Button";
 
 interface Props {
@@ -143,19 +144,7 @@ export const Controls: VFC<Props> = ({
                     ))}
                 </span>
             </div>
-            <div className="h-2/3 flex justify-center items-center">
-                <span>
-                    {!gameState.status.isPlaying &&
-                        CHIP_LIST.map((chip, index) => (
-                            <Chip
-                                key={index}
-                                chip={chip}
-                                playerInfo={gameState.playerInfo}
-                                handleMakeBet={handleMakeBet}
-                            />
-                        ))}
-                </span>
-            </div>
+            <ChipList gameState={gameState} handleMakeBet={handleMakeBet} />
         </div>
     );
 };
