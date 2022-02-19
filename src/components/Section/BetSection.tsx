@@ -22,8 +22,7 @@ interface Props {
 }
 
 const BetSection: VFC<Props> = (props) => {
-    const dealClicked = (gameState: Game) => {
-        const { deck, playerInfo, dealerInfo } = gameState;
+    const dealClicked = ({ deck, playerInfo, dealerInfo }: Game) => {
         const checkedDeck = checkDeckForShuffle(deck);
         const dealerCards = dealerInfo.cards;
         const playerCards = playerInfo.cards;
@@ -36,7 +35,7 @@ const BetSection: VFC<Props> = (props) => {
 
     const isDealDisabled = () => {
         return props.gameState.playerInfo.betSize === 0
-            ? "bg-gray-500 opacity-40 cursor-not-allowed"
+            ? "bg-gray-500 opacity-40 cursor-not-allowed btn-disabled"
             : "";
     };
 

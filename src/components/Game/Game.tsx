@@ -4,7 +4,7 @@ import { gameReducer } from "../../reducer/game";
 import Alert from "../common/Alert";
 import { ACTION_TYPE } from "../../reducer/game/actionType";
 import { Card, DealerInfo, PlayerInfo, Status } from "../../types/types";
-import GameResult from "../GameResult/GameResult";
+import GameResult from "./GameResult";
 import Section from "../Section";
 
 const Game: VFC = () => {

@@ -31,8 +31,7 @@ const PlayingSection: VFC<Props> = ({
     handleStayAction,
     handleCalcTotalAction,
 }) => {
-    const hitClicked = (gameState: Game) => {
-        const { deck, playerInfo, dealerInfo, status } = gameState;
+    const hitClicked = ({ deck, playerInfo, dealerInfo, status }: Game) => {
         const checkedDeck = checkDeckForShuffle(deck);
         const playerCards = playerInfo.cards;
         drawCards(checkedDeck, playerCards, 1);
@@ -43,8 +42,7 @@ const PlayingSection: VFC<Props> = ({
         });
     };
 
-    const stayClicked = (gameState: Game) => {
-        const { deck, playerInfo, dealerInfo, status } = gameState;
+    const stayClicked = ({ deck, playerInfo, dealerInfo, status }: Game) => {
         let playerTotal = Math.max(playerInfo.total, playerInfo.totalAlt);
         if (playerTotal > 21)
             playerTotal = Math.min(playerInfo.total, playerInfo.totalAlt);
