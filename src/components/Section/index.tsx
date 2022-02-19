@@ -14,12 +14,14 @@ interface Props {
     ) => void;
     handleHitAction: (
         deck: Card[],
+        dealerInfo: DealerInfo,
         playerInfo: PlayerInfo,
         status: Status
     ) => void;
     handleStayAction: (
         deck: Card[],
         dealerInfo: DealerInfo,
+        playerInfo: PlayerInfo,
         status: Status
     ) => void;
     handleCalcTotalAction: (
@@ -42,7 +44,6 @@ const Section: VFC<Props> = ({
             gameState={gameState}
             handleHitAction={handleHitAction}
             handleStayAction={handleStayAction}
-            handleCalcTotalAction={handleCalcTotalAction}
         />
     ) : (
         <BetSection
