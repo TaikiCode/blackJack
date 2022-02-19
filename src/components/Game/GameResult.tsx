@@ -1,25 +1,14 @@
 import { VFC } from "react";
 import { GAME_MESSAGE } from "../../contents/gameStatus";
-import { Card, PlayerInfo, Status } from "../../types/types";
+import { Card, Game, PlayerInfo } from "../../types/types";
 
 interface Props {
-    deck: Card[];
-    playerInfo: PlayerInfo;
-    status: Status;
+    gameState: Game;
     handleResetGameAction: (deck: Card[], playerInfo: PlayerInfo) => void;
 }
 
-const GameResult: VFC<Props> = ({
-    deck,
-    playerInfo,
-    status,
-    handleResetGameAction,
-}) => {
-    const resetGame = (
-        deck: Card[],
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => {
+const GameResult: VFC<Props> = ({ gameState, handleResetGameAction }) => {
+    const resetGame = ({ deck, playerInfo, status }: Game) => {
         let { betSize, budget } = playerInfo;
         let { resultMsg } = status;
         if (resultMsg === GAME_MESSAGE["draw"]) {
@@ -32,8 +21,8 @@ const GameResult: VFC<Props> = ({
 
     return (
         <div className="backdrop">
-            <p onClick={() => resetGame(deck, playerInfo, status)}>
-                {status.resultMsg}
+            <p onClick={() => resetGame(gameState)}>
+                {gameState.status.resultMsg}
             </p>
         </div>
     );

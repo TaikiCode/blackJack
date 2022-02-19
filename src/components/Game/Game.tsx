@@ -19,9 +19,7 @@ const Game: VFC = () => {
             <Section {...gameReducer} />
             {gameState.status.resultMsg && (
                 <GameResult
-                    deck={gameState.deck}
-                    playerInfo={gameState.playerInfo}
-                    status={gameState.status}
+                    gameState={gameState}
                     handleResetGameAction={handleResetGameAction}
                 />
             )}
