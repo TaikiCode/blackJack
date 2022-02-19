@@ -54,6 +54,7 @@ export const GameReducer = () => {
                 msg = checkGameStatus(dealerCards, playerTotal);
             } while (!msg);
         }
+        handleCalcTotalAction(dealerInfo, playerInfo);
         gameDispatch({
             type: ACTION_TYPE.STAY_ACTION,
             payload: {
