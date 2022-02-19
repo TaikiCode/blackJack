@@ -5,8 +5,8 @@ import { calcCardTotal } from "./calcCardTotal";
 export const checkGameStatus = (
   dealerCards: Card[],
   playerTotal: number
-): string => {
-  let status = "";
+): string | null=> {
+  let status = null;
 
   const t1 = calcCardTotal(dealerCards, false);
   const t2 = calcCardTotal(dealerCards, true);

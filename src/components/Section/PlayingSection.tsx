@@ -50,11 +50,11 @@ const PlayingSection: VFC<Props> = ({
         let dealerCards = dealerInfo.cards;
         let msg = checkGameStatus(dealerCards, playerTotal);
 
-        if (msg === "") {
+        if (!msg) {
             do {
                 drawCards(checkedDeck, dealerCards, 1);
                 msg = checkGameStatus(dealerCards, playerTotal);
-            } while (msg === "");
+            } while (!msg);
         }
         handleStayAction(checkedDeck, dealerInfo, {
             ...status,

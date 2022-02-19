@@ -14,6 +14,6 @@ export const initialState = {
   },
   status: {
     isPlaying: false,
-    resultMsg: "",
+    resultMsg: null,
   },
 };
