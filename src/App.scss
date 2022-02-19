@@ -6,46 +6,26 @@
     @apply h-screen w-screen text-white;
 }
 
-.backdrop {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
+.results {
     background: rgba(200, 200, 200, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.backdrop p {
-    text-align: center;
-    font-family: "Casino 3D";
-    /* font-family: "Casino Flat"; */
-    width: 100vw;
-    margin: 100px 0;
-    padding: 150px 0;
-    font-size: 5em;
-    font-weight: bolder;
-    background-color: rgba(0, 24, 0, 0.75);
-    border-style: solid;
-    border-width: 5px;
-    cursor: pointer;
-}
-
-.btn {
-    font-family: "Casino Flat";
-}
-
-.hide,
-.hidden {
-    display: none;
+    @apply fixed inset-0 flex justify-center items-center;
+    p {
+        margin: 100px 0;
+        padding: 200px 0;
+        background-color: rgba(0, 24, 0, 0.75);
+        border: 3px solid white;
+        @apply w-screen text-center cursor-pointer font-mono text-7xl font-bold shadow-lg;
+    }
 }
 
 .chipListStyle {
     @apply h-2/3 flex justify-center items-center;
 }
 /* ********* Button Style ********** */
+
+.btn {
+    font-family: "Casino Flat";
+}
 
 .btnStyle {
     @apply btn text-white font-bold pt-5 pb-8 px-6 border-b-4 rounded-lg mx-2;

@@ -7,25 +7,9 @@ interface Props {
     gameState: Game;
     handleMakeBet: (playerInfo: PlayerInfo) => void;
     handleClearBet: (playerInfo: PlayerInfo) => void;
-    handleDealAction: (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo
-    ) => void;
-    handleHitAction: (
-        deck: Card[],
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => void;
-    handleStayAction: (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        status: Status
-    ) => void;
-    handleCalcTotalAction: (
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo
-    ) => void;
+    handleDealAction: (gameState: Game) => void;
+    handleHitAction: (gameState: Game) => void;
+    handleStayAction: (gameState: Game) => void;
 }
 
 const Section: VFC<Props> = ({
@@ -35,20 +19,17 @@ const Section: VFC<Props> = ({
     handleDealAction,
     handleHitAction,
     handleStayAction,
-    handleCalcTotalAction,
 }) =>
     gameState.status.isPlaying ? (
         <PlayingSection
             gameState={gameState}
             handleHitAction={handleHitAction}
             handleStayAction={handleStayAction}
-            handleCalcTotalAction={handleCalcTotalAction}
         />
     ) : (
         <BetSection
             gameState={gameState}
             handleMakeBet={handleMakeBet}
-            handleCalcTotalAction={handleCalcTotalAction}
             handleDealAction={handleDealAction}
             handleClearBet={handleClearBet}
         />

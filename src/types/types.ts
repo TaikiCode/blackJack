@@ -1,5 +1,3 @@
-import { GAME_MESSAGE } from './../contents/gameStatus';
-
 export interface Card {
   code: string;
   image: string;
@@ -24,12 +22,12 @@ export interface DealerInfo {
 
 export interface Status {
     isPlaying: boolean
-    resultMsg: string
+    resultMsg: string | null
 }
 
 export interface Game {
     deck: Card[]
-    playerInfo:　PlayerInfo
+    playerInfo: PlayerInfo
     dealerInfo: DealerInfo
     status: Status
 }
