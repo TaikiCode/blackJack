@@ -4,7 +4,7 @@ import { checkDeckForShuffle } from "../../lib/checkDeckForShuffle";
 import { checkForBurst } from "../../lib/checkForBurst";
 import { checkGameStatus } from "../../lib/checkGameStatus";
 import { drawCards } from "../../lib/drawCards";
-import { Card, DealerInfo, PlayerInfo, Status } from "../../types/types";
+import { DealerInfo, Game, PlayerInfo } from "../../types/types";
 import { ACTION_TYPE } from "./actionType";
 import { initialState } from "./initialState";
 import { reducer } from "./reducer";
@@ -36,12 +36,12 @@ export const GameReducer = () => {
         });
     };
 
-    const handleStayAction = (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => {
+    const handleStayAction = ({
+        deck,
+        dealerInfo,
+        playerInfo,
+        status,
+    }: Game) => {
         let playerTotal = Math.max(playerInfo.total, playerInfo.totalAlt);
         if (playerTotal > 21)
             playerTotal = Math.min(playerInfo.total, playerInfo.totalAlt);
@@ -66,12 +66,12 @@ export const GameReducer = () => {
         // calcCards();
     };
 
-    const handleHitAction = (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => {
+    const handleHitAction = ({
+        deck,
+        dealerInfo,
+        playerInfo,
+        status,
+    }: Game) => {
         const checkedDeck = checkDeckForShuffle(deck);
         const playerCards = playerInfo.cards;
         drawCards(checkedDeck, playerCards, 1);
@@ -87,11 +87,11 @@ export const GameReducer = () => {
         });
     };
 
-    const handleDealAction = (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo
-    ) => {
+    const handleDealAction = ({
+        deck,
+        dealerInfo,
+        playerInfo
+    }: Game) => {
         const checkedDeck = checkDeckForShuffle(deck);
         const dealerCards = dealerInfo.cards;
         const playerCards = playerInfo.cards;
@@ -110,11 +110,11 @@ export const GameReducer = () => {
         });
     };
 
-    const handleResetGameAction = (
-        deck: Card[],
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => {
+    const handleResetGameAction = ({
+        deck,
+        playerInfo,
+        status
+    }: Game) => {
         let { betSize, budget } = playerInfo;
         let { resultMsg } = status;
         if (resultMsg === GAME_MESSAGE["draw"]) {
@@ -125,7 +125,11 @@ export const GameReducer = () => {
 
         gameDispatch({
             type: ACTION_TYPE.RESET_GAME,
-            payload: { ...gameState, deck, playerInfo: {...playerInfo, budget} },
+            payload: {
+                ...gameState,
+                deck,
+                playerInfo: { ...playerInfo, budget },
+            },
         });
     };
 

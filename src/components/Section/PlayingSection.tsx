@@ -1,22 +1,12 @@
 import { VFC } from "react";
-import { Card, DealerInfo, Game, PlayerInfo, Status } from "../../types/types";
+import { Game } from "../../types/types";
 import CardList from "../CardList/CardList";
 import Button from "../common/Button";
 
 interface Props {
     gameState: Game;
-    handleHitAction: (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => void;
-    handleStayAction: (
-        deck: Card[],
-        dealerInfo: DealerInfo,
-        playerInfo: PlayerInfo,
-        status: Status
-    ) => void;
+    handleHitAction: (gameState: Game) => void;
+    handleStayAction: (gameState: Game) => void;
 }
 
 const PlayingSection: VFC<Props> = ({
@@ -24,18 +14,15 @@ const PlayingSection: VFC<Props> = ({
     handleHitAction,
     handleStayAction,
 }) => {
-
-    const {deck, dealerInfo, playerInfo, status} = gameState;
-
     const BUTTON_LIST = [
         {
             className: "blueStyle",
-            onClick: () => handleHitAction(deck, dealerInfo, playerInfo, status),
+            onClick: () => handleHitAction(gameState),
             text: "Hit",
         },
         {
             className: "redStyle",
-            onClick: () => handleStayAction(deck, dealerInfo, playerInfo, status),
+            onClick: () => handleStayAction(gameState),
             text: "Stay",
         },
     ];

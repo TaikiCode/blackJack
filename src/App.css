@@ -37,11 +37,6 @@
     font-family: "Casino Flat";
 }
 
-.hide,
-.hidden {
-    display: none;
-}
-
 .chipListStyle {
     @apply h-2/3 flex justify-center items-center;
 }

@@ -7,7 +7,7 @@ import { GameReducer } from "../../reducer/game";
 const Game: VFC = () => {
     const gameReducer = GameReducer();
     const { gameState, handleResetGameAction } = gameReducer;
-    console.log(gameState)
+    // console.log(gameState)
     return (
         <div className="blackJackTable relative">
             <div className="absolute top-10 right-10">
