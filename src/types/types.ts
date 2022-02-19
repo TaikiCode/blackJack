@@ -1,5 +1,3 @@
-import { GAME_MESSAGE } from './../contents/gameStatus';
-
 export interface Card {
   code: string;
   image: string;
