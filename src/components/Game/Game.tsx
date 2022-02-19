@@ -5,8 +5,7 @@ import Alert from "../common/Alert";
 import { ACTION_TYPE } from "../../reducer/game/actionType";
 import { Card, DealerInfo, PlayerInfo, Status } from "../../types/types";
 import GameResult from "../GameResult/GameResult";
-import BetSection from "../BetSection/BetSection";
-import PlaySection from "../PlaySection/PlaySection";
+import Section from "../Section";
 
 const Game: VFC = () => {
     const [gameState, gameDispatch] = useReducer(gameReducer, initialState);
@@ -84,22 +83,15 @@ const Game: VFC = () => {
                     className="font-mono bg-black text-lg px-5 py-3 rounded-xl opacity-60 flex items-center"
                 />
             </div>
-            {status.isPlaying ? (
-                <PlaySection
-                    gameState={gameState}
-                    handleHitAction={handleHitAction}
-                    handleStayAction={handleStayAction}
-                    handleCalcTotalAction={handleCalcTotalAction}
-                />
-            ) : (
-                <BetSection
-                    gameState={gameState}
-                    handleMakeBet={handleMakeBet}
-                    handleCalcTotalAction={handleCalcTotalAction}
-                    handleDealAction={handleDealAction}
-                    handleClearBet={handleClearBet}
-                />
-            )}
+            <Section
+                gameState={gameState}
+                handleMakeBet={handleMakeBet}
+                handleCalcTotalAction={handleCalcTotalAction}
+                handleDealAction={handleDealAction}
+                handleClearBet={handleClearBet}
+                handleHitAction={handleHitAction}
+                handleStayAction={handleStayAction}
+            />
             {status.resultMsg && (
                 <GameResult
                     deck={deck}

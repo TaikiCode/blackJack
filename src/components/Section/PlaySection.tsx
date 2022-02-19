@@ -82,14 +82,12 @@ const PlaySection: VFC<Props> = ({
         <div className="h-full w-full flex flex-col justify-center items-center p-10">
             <div className="h-4/5">
                 <CardList
-                    key={0}
                     owner="Dealer: "
                     cardTotal={gameState.dealerInfo.total}
                     cardTotalAlt={gameState.dealerInfo.totalAlt}
                     cards={gameState.dealerInfo.cards}
                 />
                 <CardList
-                    key={1}
                     owner="Player: "
                     cardTotal={gameState.playerInfo.total}
                     cardTotalAlt={gameState.playerInfo.totalAlt}

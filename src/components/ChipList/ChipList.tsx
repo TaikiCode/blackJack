@@ -1,7 +1,7 @@
 import {VFC} from "react";
 import { CHIP_LIST } from "../../contents/chipList";
 import { Game, PlayerInfo } from "../../types/types";
-import Chip from "../Chip/Chip";
+import Chip from "./Chip/Chip";
 
 interface Props {
     gameState: Game

@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { PlayerInfo } from "../../types/types";
+import { PlayerInfo } from "../../../types/types";
 import "./chip.scss";
 
 interface Props {
