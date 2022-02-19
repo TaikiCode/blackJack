@@ -8,7 +8,7 @@ interface Props {
 
 const GameResult: VFC<Props> = ({ gameState, handleResetGameAction }) => {
     return (
-        <div className="backdrop">
+        <div className="results">
             <p onClick={() => handleResetGameAction(gameState)}>
                 {gameState.status.resultMsg}
             </p>

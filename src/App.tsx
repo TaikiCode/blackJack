@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import "./App.css";
+import "./App.scss";
 import Game from "./components/Game/Game";
 
 const App: VFC = () => {
