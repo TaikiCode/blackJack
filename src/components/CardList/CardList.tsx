@@ -1,35 +1,33 @@
 import { VFC } from "react";
-import { Card } from "../../types/types";
+import { Card, DealerInfo, PlayerInfo } from "../../types/types";
 import Alert from "../common/Alert";
 
 interface Props {
     owner: string;
-    cardTotal: number;
-    cardTotalAlt: number;
-    cards: Card[];
+    cardInfo: PlayerInfo | DealerInfo;
 }
 
-const CardList: VFC<Props> = ({ owner, cardTotal, cardTotalAlt, cards }) => {
-    const displayTotal = (total: number, totalAlt: number) => {
-        return total !== totalAlt && totalAlt <= 21
-            ? total + "/" + totalAlt
-            : total.toString();
+const CardList: VFC<Props> = ({ owner, cardInfo }) => {
+    const { total, totalAlt, cards } = cardInfo;
+
+    const displayTotal = (cardTotal: number, cardTotalAlt: number) => {
+        return cardTotal !== cardTotalAlt && cardTotalAlt <= 21
+            ? cardTotal + "/" + cardTotalAlt
+            : cardTotal.toString();
     };
 
     return (
         <div className="h-1/2 p-4">
             <div className="h-1/5 flex justify-center text-center">
                 <Alert
-                    displayText={`${owner} ${displayTotal(
-                        cardTotal,
-                        cardTotalAlt
-                    )}`}
+                    displayText={`${owner} ${displayTotal(total, totalAlt)}`}
                 />
             </div>
             <div className="h-4/5 text-center">
-                {cards && cards.map((card) => (
-                    <img src={card.image} className="h-full inline m-2" />
-                ))}
+                {cards &&
+                    cards.map((card) => (
+                        <img src={card.image} className="h-full inline m-2" />
+                    ))}
             </div>
         </div>
     );

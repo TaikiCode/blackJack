@@ -25,7 +25,7 @@ interface Props {
     ) => void;
 }
 
-const PlaySection: VFC<Props> = ({
+const PlayingSection: VFC<Props> = ({
     gameState,
     handleHitAction,
     handleStayAction,
@@ -81,18 +81,8 @@ const PlaySection: VFC<Props> = ({
     return (
         <div className="h-full w-full flex flex-col justify-center items-center p-10">
             <div className="h-4/5">
-                <CardList
-                    owner="Dealer: "
-                    cardTotal={gameState.dealerInfo.total}
-                    cardTotalAlt={gameState.dealerInfo.totalAlt}
-                    cards={gameState.dealerInfo.cards}
-                />
-                <CardList
-                    owner="Player: "
-                    cardTotal={gameState.playerInfo.total}
-                    cardTotalAlt={gameState.playerInfo.totalAlt}
-                    cards={gameState.playerInfo.cards}
-                />
+                <CardList owner="Dealer: " cardInfo={gameState.dealerInfo} />
+                <CardList owner="Player: " cardInfo={gameState.playerInfo} />
             </div>
             <div className="h-1/5 flex items-center">
                 {BUTTON_LIST.map((item, index) => (
@@ -108,4 +98,4 @@ const PlaySection: VFC<Props> = ({
     );
 };
 
-export default PlaySection;
+export default PlayingSection;

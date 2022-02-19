@@ -1,7 +1,7 @@
 import { VFC } from "react";
 import { Card, DealerInfo, Game, PlayerInfo, Status } from "../../types/types";
 import BetSection from "./BetSection";
-import PlaySection from "./PlaySection";
+import PlayingSection from "./PlayingSection";
 
 interface Props {
     gameState: Game;
@@ -38,7 +38,7 @@ const Section: VFC<Props> = ({
     handleCalcTotalAction,
 }) =>
     gameState.status.isPlaying ? (
-        <PlaySection
+        <PlayingSection
             gameState={gameState}
             handleHitAction={handleHitAction}
             handleStayAction={handleStayAction}
