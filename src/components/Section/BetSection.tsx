@@ -2,6 +2,7 @@ import { VFC } from "react";
 import { Game, PlayerInfo } from "../../types/types";
 import ChipList from "../ChipList/ChipList";
 import Button from "../common/Button";
+import Tooltip from "../common/Tooltip";
 
 interface Props {
     gameState: Game;
@@ -27,11 +28,13 @@ const BetSection: VFC<Props> = ({
             className: "blueStyle" + " " + isDealDisabled(),
             onClick: () => handleDealAction(gameState),
             text: "Deal",
+            expText: "ゲームスタート"
         },
         {
             className: "yellowStyle",
             onClick: () => handleClearBet(gameState.playerInfo),
             text: "Clear",
+            expText: "ベッド取り消し"
         },
     ];
 
@@ -49,12 +52,13 @@ const BetSection: VFC<Props> = ({
                 </div>
                 <div className="ml-24">
                     {BUTTON_LIST.map((item, index) => (
-                        <Button
-                            key={index}
-                            displayText={item.text}
-                            className={item.className + " " + "btnStyle"}
-                            onClick={item.onClick}
-                        />
+                        <Tooltip key={index} displayText={item.expText}>
+                            <Button     
+                                displayText={item.text}
+                                className={item.className + " " + "btnStyle"}
+                                onClick={item.onClick}
+                            />
+                        </Tooltip>
                     ))}
                 </div>
             </div>

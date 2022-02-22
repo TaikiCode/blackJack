@@ -2,6 +2,7 @@ import { VFC } from "react";
 import { Game } from "../../types/types";
 import CardList from "../CardList/CardList";
 import Button from "../common/Button";
+import Tooltip from "../common/Tooltip";
 
 interface Props {
     gameState: Game;
@@ -19,11 +20,13 @@ const PlayingSection: VFC<Props> = ({
             className: "blueStyle",
             onClick: () => handleHitAction(gameState),
             text: "Hit",
+            expText: "もう１枚引く"
         },
         {
             className: "redStyle",
             onClick: () => handleStayAction(gameState),
             text: "Stay",
+            expText: "これで勝負する"
         },
     ];
 
@@ -35,12 +38,14 @@ const PlayingSection: VFC<Props> = ({
             </div>
             <div className="h-1/5 flex items-center">
                 {BUTTON_LIST.map((item, index) => (
-                    <Button
-                        key={index}
-                        displayText={item.text}
-                        className={item.className + " " + "btnStyle"}
-                        onClick={item.onClick}
-                    />
+                    <Tooltip key={index} displayText={item.expText}>
+                        <Button
+                            key={index}
+                            displayText={item.text}
+                            className={item.className + " " + "btnStyle"}
+                            onClick={item.onClick}
+                        />
+                    </Tooltip>
                 ))}
             </div>
         </div>

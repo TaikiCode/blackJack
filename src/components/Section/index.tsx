@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { Card, DealerInfo, Game, PlayerInfo, Status } from "../../types/types";
+import { Game, PlayerInfo } from "../../types/types";
 import BetSection from "./BetSection";
 import PlayingSection from "./PlayingSection";
 

@@ -64,7 +64,6 @@ export const GameReducer = () => {
                 status: { ...status, resultMsg: msg },
             },
         });
-        // calcCards();
     };
 
     const handleHitAction = ({

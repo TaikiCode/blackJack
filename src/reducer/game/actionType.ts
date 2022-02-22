@@ -8,11 +8,4 @@ export const ACTION_TYPE = {
   CALC_TOTAL: "CALC_TOTAL",
 } as const;
 
-// type SizeType = "small" | "medium" | "large"
 export type GameActionType = typeof ACTION_TYPE[keyof typeof ACTION_TYPE];
-// 全てのtypeを配列として取得
-// const AllSizeType: ("small" | "medium" | "large")[]
-// export const AllActionType = Object.values(ActionType);
-
-
-
