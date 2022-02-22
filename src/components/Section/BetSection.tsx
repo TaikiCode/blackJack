@@ -34,7 +34,7 @@ const BetSection: VFC<Props> = ({
             className: "yellowStyle",
             onClick: () => handleClearBet(gameState.playerInfo),
             text: "Clear",
-            expText: "ベッド取り消し"
+            expText: "ベッドやり直し"
         },
     ];
 
@@ -65,7 +65,7 @@ const BetSection: VFC<Props> = ({
             <ChipList
                 gameState={gameState}
                 handleMakeBet={handleMakeBet}
-                className="flex justify-center items-center"
+                className="flex justify-center items-center pt-8"
             />
         </div>
     );

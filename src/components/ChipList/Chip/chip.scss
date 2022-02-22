@@ -1,502 +1,505 @@
+$size: 0.75;
+
 /* chip Style  */
 .chip {
-  margin: 0.8em;
-  position: relative;
-  display: inline-block;
-  width: calc(151px * 0.7);
-  height: calc(151px * 0.7);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 3px 0 rgba(0, 0, 0, 0.4) inset;
-  border-radius: 50%;
-  background-size: calc(151px * 0.7) calc(151px * 0.7);
-  background-position: center center;
+    margin: 0.8em;
+    position: relative;
+    display: inline-block;
+    width: calc(151px * $size);
+    height: calc(151px * $size);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5),
+        0 0 3px 0 rgba(0, 0, 0, 0.4) inset;
+    border-radius: 50%;
+    background-size: calc(151px * $size) calc(151px * $size);
+    background-position: center center;
 }
 
 .chip::before {
-  box-sizing: initial;
-  position: absolute;
-  content: "";
-  z-index: 1;
-  width: calc(117px * 0.7);
-  height: calc(117px * 0.7);
-  border-radius: 50%;
-  top: calc(9px * 0.7);
-  left: calc(9px * 0.7);
-  background-size: calc(151px * 0.7) calc(151px * 0.7);
-  background-position: center center;
+    box-sizing: initial;
+    position: absolute;
+    content: "";
+    z-index: 1;
+    width: calc(117px * $size);
+    height: calc(117px * $size);
+    border-radius: 50%;
+    top: calc(9px * $size);
+    left: calc(9px * $size);
+    background-size: calc(151px * $size) calc(151px * $size);
+    background-position: center center;
 }
 
 .chip::after {
-  z-index: 2;
-  position: absolute;
-  content: "";
-  text-align: center;
-  font: bold calc(50px * 0.7) / calc(111px * 0.7) Arial;
-  white-space: pre;
-  width: calc(111px * 0.7);
-  height: calc(111px * 0.7);
+    z-index: 2;
+    position: absolute;
+    content: "";
+    text-align: center;
+    font: bold calc(50px * $size) / calc(111px * $size) Arial;
+    white-space: pre;
+    width: calc(111px * $size);
+    height: calc(111px * $size);
 
-  border-radius: 50%;
-  top: calc(20px * 0.7);
-  left: calc(20px * 0.7);
-  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3),
-    1px 1px 0px rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: calc(20px * $size);
+    left: calc(20px * $size);
+    text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3),
+        1px 1px 0px rgba(255, 255, 255, 0.2);
 }
 .chip.white {
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(67.5px * 0.7),
-      #fff calc(67.5px * 0.7),
-      #fff calc(83.5px * 0.7),
-      transparent calc(83.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      transparent calc(113.4304px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      #dddddd 0,
-      #dddddd calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      #dddddd calc(113.4304px * 0.7),
-      #dddddd calc(151px * 0.7)
-    );
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(67.5px * $size),
+            #fff calc(67.5px * $size),
+            #fff calc(83.5px * $size),
+            transparent calc(83.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            transparent calc(113.4304px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            #dddddd 0,
+            #dddddd calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            #dddddd calc(113.4304px * $size),
+            #dddddd calc(151px * $size)
+        );
 }
 .chip.white::before {
-  border: calc(8px * 0.7) solid #dddddd;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      30deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      150deg,
-      #c1c1c1 0,
-      #c1c1c1 calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      #c1c1c1 calc(110.7104px * 0.7),
-      #c1c1c1 calc(151px * 0.7)
-    );
+    border: calc(8px * $size) solid #dddddd;
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            30deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            150deg,
+            #c1c1c1 0,
+            #c1c1c1 calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            #c1c1c1 calc(110.7104px * $size),
+            #c1c1c1 calc(151px * $size)
+        );
 }
 .chip.white::after {
-  content: "1";
-  background: #dddddd;
-  color: #c1c1c1;
+    content: "1";
+    background: #dddddd;
+    color: #c1c1c1;
 }
 
 .chip.red {
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(67.5px * 0.7),
-      #fff calc(67.5px * 0.7),
-      #fff calc(83.5px * 0.7),
-      transparent calc(83.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      transparent calc(113.4304px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      #800000 0,
-      #800000 calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      #800000 calc(113.4304px * 0.7),
-      #800000 calc(151px * 0.7)
-    );
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(67.5px * $size),
+            #fff calc(67.5px * $size),
+            #fff calc(83.5px * $size),
+            transparent calc(83.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            transparent calc(113.4304px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            #800000 0,
+            #800000 calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            #800000 calc(113.4304px * $size),
+            #800000 calc(151px * $size)
+        );
 }
 .chip.red::before {
-  border: calc(8px * 0.7) solid #800000;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      30deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      150deg,
-      #6c0000 0,
-      #6c0000 calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      #6c0000 calc(110.7104px * 0.7),
-      #6c0000 calc(151px * 0.7)
-    );
+    border: calc(8px * $size) solid #800000;
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            30deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            150deg,
+            #6c0000 0,
+            #6c0000 calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            #6c0000 calc(110.7104px * $size),
+            #6c0000 calc(151px * $size)
+        );
 }
 .chip.red::after {
-  content: "5";
-  background: #800000;
-  color: #6c0000;
+    content: "5";
+    background: #800000;
+    color: #6c0000;
 }
 
 .chip.blue {
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(67.5px * 0.7),
-      #fff calc(67.5px * 0.7),
-      #fff calc(83.5px * 0.7),
-      transparent calc(83.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      transparent calc(113.4304px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      #000099 0,
-      #000099 calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      #000099 calc(113.4304px * 0.7),
-      #000099 calc(151px * 0.7)
-    );
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(67.5px * $size),
+            #fff calc(67.5px * $size),
+            #fff calc(83.5px * $size),
+            transparent calc(83.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            transparent calc(113.4304px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            #000099 0,
+            #000099 calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            #000099 calc(113.4304px * $size),
+            #000099 calc(151px * $size)
+        );
 }
 .chip.blue::before {
-  border: calc(8px * 0.7) solid #000099;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      30deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      150deg,
-      #00016c 0,
-      #00016c calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      #00016c calc(110.7104px * 0.7),
-      #00016c calc(151px * 0.7)
-    );
+    border: calc(8px * $size) solid #000099;
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            30deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            150deg,
+            #00016c 0,
+            #00016c calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            #00016c calc(110.7104px * $size),
+            #00016c calc(151px * $size)
+        );
 }
 .chip.blue::after {
-  content: "10";
-  background: #000099;
-  color: #00016c;
+    content: "10";
+    background: #000099;
+    color: #00016c;
 }
 
 .chip.green {
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(67.5px * 0.7),
-      #fff calc(67.5px * 0.7),
-      #fff calc(83.5px * 0.7),
-      transparent calc(83.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      transparent calc(113.4304px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      #008000 0,
-      #008000 calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      #008000 calc(113.4304px * 0.7),
-      #008000 calc(151px * 0.7)
-    );
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(67.5px * $size),
+            #fff calc(67.5px * $size),
+            #fff calc(83.5px * $size),
+            transparent calc(83.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            transparent calc(113.4304px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            #008000 0,
+            #008000 calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            #008000 calc(113.4304px * $size),
+            #008000 calc(151px * $size)
+        );
 }
 .chip.green::before {
-  border: calc(8px * 0.7) solid #008000;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      30deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      150deg,
-      #016c00 0,
-      #016c00 calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      #016c00 calc(110.7104px * 0.7),
-      #016c00 calc(151px * 0.7)
-    );
+    border: calc(8px * $size) solid #008000;
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            30deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            150deg,
+            #016c00 0,
+            #016c00 calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            #016c00 calc(110.7104px * $size),
+            #016c00 calc(151px * $size)
+        );
 }
 .chip.green::after {
-  content: "50";
-  background: #008000;
-  color: #016c00;
+    content: "50";
+    background: #008000;
+    color: #016c00;
 }
 
 .chip.black {
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(67.5px * 0.7),
-      #fff calc(67.5px * 0.7),
-      #fff calc(83.5px * 0.7),
-      transparent calc(83.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      transparent calc(113.4304px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      #222222 0,
-      #222222 calc(97.4304px * 0.7),
-      #fff calc(97.4304px * 0.7),
-      #fff calc(113.4304px * 0.7),
-      #222222 calc(113.4304px * 0.7),
-      #222222 calc(151px * 0.7)
-    );
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(67.5px * $size),
+            #fff calc(67.5px * $size),
+            #fff calc(83.5px * $size),
+            transparent calc(83.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            transparent calc(113.4304px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            #222222 0,
+            #222222 calc(97.4304px * $size),
+            #fff calc(97.4304px * $size),
+            #fff calc(113.4304px * $size),
+            #222222 calc(113.4304px * $size),
+            #222222 calc(151px * $size)
+        );
 }
 .chip.black::before {
-  border: calc(8px * 0.7) solid #222222;
-  background-image: linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      30deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      60deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(69.5px * 0.7),
-      #ebebeb calc(69.5px * 0.7),
-      #ebebeb calc(81.5px * 0.7),
-      transparent calc(81.5px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      120deg,
-      transparent 0,
-      transparent calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      transparent calc(110.7104px * 0.7),
-      transparent calc(151px * 0.7)
-    ),
-    linear-gradient(
-      150deg,
-      #000000 0,
-      #000000 calc(98.7104px * 0.7),
-      #ebebeb calc(98.7104px * 0.7),
-      #ebebeb calc(110.7104px * 0.7),
-      #000000 calc(110.7104px * 0.7),
-      #000000 calc(151px * 0.7)
-    );
+    border: calc(8px * $size) solid #222222;
+    background-image: linear-gradient(
+            0deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            30deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            60deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc(69.5px * $size),
+            #ebebeb calc(69.5px * $size),
+            #ebebeb calc(81.5px * $size),
+            transparent calc(81.5px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            120deg,
+            transparent 0,
+            transparent calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            transparent calc(110.7104px * $size),
+            transparent calc(151px * $size)
+        ),
+        linear-gradient(
+            150deg,
+            #000000 0,
+            #000000 calc(98.7104px * $size),
+            #ebebeb calc(98.7104px * $size),
+            #ebebeb calc(110.7104px * $size),
+            #000000 calc(110.7104px * $size),
+            #000000 calc(151px * $size)
+        );
 }
 .chip.black::after {
-  content: "100";
-  background: #222222;
-  color: #000000;
+    content: "100";
+    background: #222222;
+    color: #000000;
 }
